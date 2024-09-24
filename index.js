@@ -1,11 +1,19 @@
-const path = require("path")
+const os = require("os")
 
-const filepath = "/users/ganesh/asil.js"
-const filename = path.basename(filepath)
-console.log(filename)
+const platform = os.platform()
+console.log(platform)
 
-const dirName = path.dirname(filepath)
-console.log(dirName)
+const type = os.type()
+console.log(type)
 
-const extName = path.extname(filepath)
-console.log(extName)
+const arch = os.arch()
+console.log(arch)
+
+const uptime = os.uptime()
+console.log(uptime)
+
+const freemem = os.freemem()
+console.log(freemem)
+
+const tmpDir = os.tmpdir()
+console.log(tmpDir)
