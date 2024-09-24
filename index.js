@@ -1,50 +1,11 @@
-const fs = require("fs")
+const path = require("path")
 
-// Reading file
-const a = fs.readFile("./sample.txt","utf-8",(err,data)=>{
-    if(err){
-        return err
-    }
+const filepath = "/users/ganesh/asil.js"
+const filename = path.basename(filepath)
+console.log(filename)
 
-    console.log("File readed successfully" + data)
-})
+const dirName = path.dirname(filepath)
+console.log(dirName)
 
-// Writing a file 
-const data = "Writing to the file"
-
-fs.writeFile("./sample.txt",data,(err,data)=>{
-    if(err){
-        return err
-    }
-    console.log("File Writted Successfully")
-})
-
-// Adding new data to the file
-
-const data = "Appending the a new data to the file"
-fs.appendFile("./sample.txt",data,(err,data)=>{
-    if(err){
-        return err
-    }
-
-    console.log("Appending data successfully")
-})
-
-// Renaming a file name
-
-fs.rename("sample.txt","file.txt",(err,data)=>{
-    if(err){
-        return err
-    }
-
-    console.log("File name Reanamed")
-})
-
-//Deleting the file
-
-fs.unlink("index.js",(err,data)=>{
-    if(err){
-        return err
-    }
-    console.log("File deleted")
-})
+const extName = path.extname(filepath)
+console.log(extName)
