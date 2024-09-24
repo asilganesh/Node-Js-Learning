@@ -1,1 +1,10 @@
-console.log("Hello World")
+ const a = {
+    average: (a,b) => {
+        console.log((a+b)/2)
+    },
+    percent: (a,b) => {
+        console.log((a/b)*100)
+    }
+}
+
+export default a;
