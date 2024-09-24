@@ -1,19 +1,9 @@
-const os = require("os")
+const eventEmitter = require("events")
 
-const platform = os.platform()
-console.log(platform)
+const myEmitter = new eventEmitter()
 
-const type = os.type()
-console.log(type)
+myEmitter.on("greet",(name)=>{
+    console.log("Hello"+ name)
+})
 
-const arch = os.arch()
-console.log(arch)
-
-const uptime = os.uptime()
-console.log(uptime)
-
-const freemem = os.freemem()
-console.log(freemem)
-
-const tmpDir = os.tmpdir()
-console.log(tmpDir)
+myEmitter.emit('greet','Asil')
