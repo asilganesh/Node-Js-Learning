@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "this is a sample app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asilganesh/Node-Js-Learning.git"
+  },
+  "author": "Ganesh Asil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asilganesh/Node-Js-Learning/issues"
+  },
+  "homepage": "https://github.com/asilganesh/Node-Js-Learning#readme",
+  "keywords": [],
+  "dependencies": {
+    "node-modules": "^1.0.1"
+  }
+}
