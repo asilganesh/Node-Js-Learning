@@ -1,40 +1,19 @@
-const http = require("http")
-const fs = require("fs")
-const port = 3000
-const hostname = "localhost"
-const home = fs.readFileSync("./index.html","utf-8")
+const express = require("express")
+const path = require("path")
+const body = require("body-parser")
+const app = express()
 
-const server = http.createServer((req,res) => {
-    if(req.method==='GET'){
-
-        res.end("it is a GET Method")
-    }
-
-    if(req.method==='POST'){
-
-        let body = ''
-        req.on('data',chunk=>{
-            body+= chunk.toString()
-        })
-        req.on('end',()=>{
-            res.end("it is post method"+body)
-        })
-    }
-    // if(req.url==="/"){
-       
-    //    return  res.end(home)
-    // }
-    
-    // if(req.url==="/about"){
-    //     return res.end("<h1>About Page</h1>")
-    // }
-
-    // else{
-    //     res.end("<h1>404 Page not found</h1>")
-    // }
+app.use(body.urlencoded({extended: false}))
+app.get('/',(req,res) => {
+    res.sendFile(path.join(__dirname+"/index.html"))
 })
 
+app.post('/login',(req,res) => {
 
-server.listen(port,hostname,()=>{
-    console.log(`server is running on the http://${hostname}:${port}`)
+    console.log(req.body)
+    res.send("Done")
+})
+const port = 4000
+app.listen(port,()=>{
+    console.log(`Server is listening on http://localhost:${port}`)
 })
