@@ -1,19 +1,22 @@
 const express = require("express")
-const path = require("path")
-const body = require("body-parser")
+
 const app = express()
-
-app.use(body.urlencoded({extended: false}))
-app.get('/',(req,res) => {
-    res.sendFile(path.join(__dirname+"/index.html"))
-})
-
-app.post('/login',(req,res) => {
-
-    console.log(req.body)
-    res.send("Done")
-})
 const port = 4000
+
+app.use((req,res,next)=>{
+    const err= new Error("Something Went Wrong")
+    next(err)
+})
+
+app.use((err,req,res,next)=>{
+    console.error(err.stack)
+    res.status(500).send("something broke")
+})
+
+app.get('/',(req,res)=>{
+    res.send("Hello world")
+})
+
 app.listen(port,()=>{
-    console.log(`Server is listening on http://localhost:${port}`)
+    console.log(`Server is running`)
 })
